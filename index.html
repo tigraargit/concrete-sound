@@ -40,8 +40,8 @@ select:focus,input[type=file]:focus{border-color:var(--bone)}
 
 /* title: enormous, cropped by the edge and the rule */
 .masthead{position:relative;overflow:hidden;padding:74px 0 0;border-bottom:10px solid var(--bone)}
-.masthead .eyebrow{position:absolute;top:28px;left:clamp(16px,4vw,56px)}
-h1{margin:0 0 0 -.035em;font:900 20vw/.8 var(--imp);letter-spacing:-.045em;text-transform:uppercase;white-space:nowrap;margin-bottom:-.13em}
+.masthead .eyebrow{position:absolute;top:28px;left:clamp(16px,calc(4*var(--u)),56px)}
+h1{margin:0 0 0 -.035em;font:900 calc(20*var(--u))/.8 var(--imp);letter-spacing:-.045em;text-transform:uppercase;white-space:nowrap;margin-bottom:-.13em}
 h1 .l1{display:inline-block}
 h1 .l2{display:block}
 #openMenu{position:fixed;top:16px;right:16px;z-index:40;background:var(--bone);color:#000;font-size:12px;padding:14px 20px;letter-spacing:.2em}
@@ -49,15 +49,15 @@ h1 .l2{display:block}
 body:has([aria-hidden="false"]) #openMenu{display:none}
 
 /* your sounds: slabs, not cards */
-.wrap{padding:0 clamp(16px,4vw,56px)}
+.wrap{padding:0 clamp(16px,calc(4*var(--u)),56px)}
 .bar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:20px 0}
 .tools{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .master-vol{display:flex;align-items:center;gap:10px;margin:0}
 input[type=range]{accent-color:var(--bone);width:120px}
 input[type=checkbox]{accent-color:var(--bone);width:15px;height:15px;margin:0}
 .wave-list{display:block;border-bottom:1px solid var(--line)}
-.wave-card{display:grid;grid-template-columns:clamp(70px,9vw,130px) minmax(0,1fr) auto;gap:6px clamp(14px,2.4vw,34px);align-items:center;padding:22px 0;border:0;border-top:5px solid var(--bone);background:transparent}
-.keycap{font:900 clamp(60px,9vw,128px)/.85 var(--imp);color:var(--bone);background:none;border:0;height:auto;text-align:left;text-transform:uppercase}
+.wave-card{display:grid;grid-template-columns:clamp(70px,calc(9*var(--u)),130px) minmax(0,1fr) auto;gap:6px clamp(14px,calc(2.4*var(--u)),34px);align-items:center;padding:22px 0;border:0;border-top:5px solid var(--bone);background:transparent}
+.keycap{font:900 clamp(60px,calc(9*var(--u)),128px)/.85 var(--imp);color:var(--bone);background:none;border:0;height:auto;text-align:left;text-transform:uppercase}
 .keycap.long{font-size:22px;letter-spacing:.12em;line-height:1.1}
 .wave-main{min-width:0}
 .wave-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;min-width:0}
@@ -76,42 +76,43 @@ canvas{display:block;width:100%;height:64px;background:#000}
 .wave-card.looping .keycap{animation:loopPulse 1s steps(2) infinite}
 @keyframes loopPulse{50%{opacity:.25}}
 .empty{padding:6px 0}
-.empty-start{padding:clamp(40px,10vw,110px) 0 clamp(40px,8vw,90px);text-align:left;border:0;border-top:5px solid var(--bone)}
-.empty-start p{margin:0 0 26px;font:900 clamp(60px,15vw,210px)/.85 var(--imp);letter-spacing:-.03em;color:var(--bone);text-transform:uppercase}
+.empty-start{padding:clamp(40px,calc(10*var(--u)),110px) 0 clamp(40px,calc(8*var(--u)),90px);text-align:left;border:0;border-top:5px solid var(--bone)}
+.empty-start p{margin:0 0 26px;font:900 clamp(60px,calc(15*var(--u)),210px)/.85 var(--imp);letter-spacing:-.03em;color:var(--bone);text-transform:uppercase}
 .empty-actions{display:flex;gap:10px;flex-wrap:wrap}
 #yourSounds .hint{padding-bottom:70px}
 
 /* menu + rooms: a few giant words in a lot of black */
-.room{display:none;position:fixed;inset:0;z-index:30;background:#000;color:var(--bone);overflow:auto;padding:clamp(18px,4vw,48px)}
+.room{display:none;position:fixed;inset:0;z-index:30;background:#000;color:var(--bone);overflow:auto;padding:clamp(18px,calc(4*var(--u)),48px)}
 .room.open{display:block}
 .room-inner{max-width:980px;margin:0 auto}
 .room-inner.wide{max-width:1240px}
 .room-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;border-bottom:10px solid var(--bone);padding-bottom:20px;margin-bottom:26px}
-.room-title{margin:12px 0 0;font:900 clamp(56px,13vw,190px)/.8 var(--imp);letter-spacing:-.04em;text-transform:uppercase;font-size:clamp(56px,13vw,190px)}
-#menu{background:linear-gradient(90deg,#000 30%,rgba(0,0,0,.5) 100%),var(--gate) right center/auto 100% no-repeat,#000}
+.room-title{margin:12px 0 0;font:900 clamp(56px,calc(13*var(--u)),190px)/.8 var(--imp);letter-spacing:-.04em;text-transform:uppercase;font-size:clamp(56px,calc(13*var(--u)),190px)}
+#menu::before{content:"";position:fixed;top:0;right:0;bottom:0;width:min(calc(62*var(--u)),720px);background:var(--gate) right center/cover no-repeat;opacity:.5;-webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%);pointer-events:none}
+.room-inner{position:relative}
 .menu-list{display:grid}
 .menu-item{display:grid;grid-template-columns:54px 1fr;align-items:baseline;gap:14px;width:100%;text-align:left;padding:14px 8px 12px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--bone);text-transform:none;letter-spacing:0}
 .menu-item .mi-no{font:800 11px var(--sans);letter-spacing:.2em;color:var(--dim)}
-.menu-item strong{display:block;font:900 clamp(38px,7.4vw,96px)/.92 var(--imp);text-transform:uppercase;letter-spacing:-.01em}
+.menu-item strong{display:block;font:900 clamp(38px,calc(7.4*var(--u)),96px)/.92 var(--imp);text-transform:uppercase;letter-spacing:-.01em}
 .menu-item small{display:block;margin-top:6px;font:800 10px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
 .menu-item:not(:disabled):focus-visible{background:var(--bone);color:#000}
 .menu-item:not(:disabled):focus-visible .mi-no,.menu-item:not(:disabled):focus-visible small{color:#39352e}
 @media (hover:hover){.menu-item:not(:disabled):hover{background:var(--bone);color:#000}.menu-item:not(:disabled):hover .mi-no,.menu-item:not(:disabled):hover small{color:#39352e}}
 .menu-item:disabled{opacity:.28;cursor:not-allowed}
 .menu-sep{margin:34px 0 0;font:800 10px var(--sans);letter-spacing:.24em;color:var(--dim)}
-.menu-list.small .menu-item strong{font-size:clamp(24px,3.8vw,44px)}
+.menu-list.small .menu-item strong{font-size:clamp(24px,calc(3.8*var(--u)),44px)}
 .controls{display:grid;grid-template-columns:150px minmax(160px,1fr) auto;gap:12px;align-items:end}
 
 /* sound room: a numbered catalogue */
-.archive-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr);gap:clamp(20px,4vw,56px);align-items:start}
+.archive-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr);gap:clamp(20px,calc(4*var(--u)),56px);align-items:start}
 .arch-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:5px solid var(--bone)}
-.arch-bar h3{margin:0;font:900 clamp(26px,3.4vw,40px)/1 var(--imp);text-transform:uppercase;letter-spacing:.01em}
+.arch-bar h3{margin:0;font:900 clamp(26px,calc(3.4*var(--u)),40px)/1 var(--imp);text-transform:uppercase;letter-spacing:.01em}
 .arch-bar select{width:auto;max-width:190px;padding:9px}
 #basketCount{font:800 10px var(--sans);letter-spacing:.2em;color:var(--dim)}
 .lib-item{display:grid;grid-template-columns:minmax(0,1fr) auto;border-bottom:1px solid var(--line)}
 .library-sound{display:grid;grid-template-columns:46px minmax(0,1fr) auto;grid-template-areas:"no name act" "no meta act";gap:2px 14px;align-items:center;text-align:left;padding:13px 8px;border:0;background:transparent;color:var(--bone);text-transform:none;letter-spacing:0}
 .library-sound .no{grid-area:no;font:800 11px var(--sans);letter-spacing:.14em;color:var(--dim)}
-.library-sound strong{grid-area:name;font:900 clamp(20px,2.4vw,26px)/1 var(--imp);text-transform:uppercase;letter-spacing:.02em}
+.library-sound strong{grid-area:name;font:900 clamp(20px,calc(2.4*var(--u)),26px)/1 var(--imp);text-transform:uppercase;letter-spacing:.02em}
 .library-sound>:nth-child(3){grid-area:meta;font:700 10px var(--sans);letter-spacing:.16em;color:var(--dim)}
 .library-sound>:nth-child(4){grid-area:act;font:800 10px var(--sans);letter-spacing:.14em;color:var(--bone)}
 @media (hover:hover){button.library-sound:hover:not(:disabled){background:#171614;color:var(--bone)}button.library-sound.selected:hover:not(:disabled){background:var(--bone);color:#000}}
@@ -128,39 +129,49 @@ canvas{display:block;width:100%;height:64px;background:#000}
 .basket>button.primary{width:100%}
 
 /* toast */
-#toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);z-index:60;max-width:min(560px,calc(100vw - 28px));padding:14px 18px;background:var(--bone);color:#000;font:800 11px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+#toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);z-index:60;max-width:min(560px,calc(calc(100*var(--u)) - 28px));padding:14px 18px;background:var(--bone);color:#000;font:800 11px/1.4 var(--sans);letter-spacing:.1em;text-transform:uppercase;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 
 /* performance view: terraces in the dark, one huge word */
 #visualizer{display:none;position:fixed;inset:0;z-index:20;overflow:hidden;color:var(--bone);background:linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.9)),var(--terr) center/cover no-repeat,#000}
 #visualizer:focus{outline:none}
 #visualCanvas{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen}
-#typeStage{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);padding:0 clamp(18px,5vw,60px);text-align:center;pointer-events:none;z-index:2}
-#typedText,.typed-ghost{font-family:var(--imp);font-size:clamp(46px,12vw,170px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;color:var(--bone);text-shadow:3px 3px 0 rgba(0,0,0,.7);white-space:pre-wrap;overflow-wrap:normal;min-height:1em}
+#typeStage{position:absolute;left:0;right:0;top:calc(var(--vvt,0px) + var(--vvh,100vh) / 2);transform:translateY(-50%);padding:0 clamp(18px,calc(5*var(--u)),60px);text-align:center;pointer-events:none;z-index:2}
+#typedText,.typed-ghost{font-family:var(--imp);font-size:clamp(46px,calc(12*var(--u)),170px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;color:var(--bone);text-shadow:3px 3px 0 rgba(0,0,0,.7);white-space:pre-wrap;overflow-wrap:normal;min-height:1em}
 #typedText.hint{opacity:.3;font:800 13px var(--sans);letter-spacing:.34em;text-shadow:none}
-.typed-ghost{position:absolute;left:clamp(18px,5vw,60px);right:clamp(18px,5vw,60px);top:50%;transform:translateY(-50%)}
+.typed-ghost{position:absolute;left:clamp(18px,calc(5*var(--u)),60px);right:clamp(18px,calc(5*var(--u)),60px);top:50%;transform:translateY(-50%)}
 .typed-ghost .w{display:inline-block;white-space:nowrap}
 .typed-ghost .w>span{display:inline-block;animation:dissolve 1.1s cubic-bezier(.3,.1,.6,1) forwards}
 @keyframes dissolve{0%{opacity:1;transform:none;filter:blur(0)}35%{opacity:.85;filter:blur(2px)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(var(--s));filter:blur(14px)}}
-.perf-ui{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:22px;pointer-events:none;z-index:3}
+#perfInput{position:absolute;left:0;bottom:0;width:1px;height:1px;opacity:0;border:0;padding:0;margin:0;font-size:16px;caret-color:transparent;pointer-events:none;background:transparent}
+@media (hover:hover){#kbBtn{display:none}}
+.perf-bottom .btns{display:flex;gap:8px;margin-left:auto}
+@media (hover:none){.perf-bottom span{display:none}}
+.perf-ui{position:absolute;left:0;right:0;top:var(--vvt,0px);height:var(--vvh,100%);display:flex;flex-direction:column;justify-content:space-between;padding:22px;pointer-events:none;z-index:3}
 .perf-top,.perf-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .perf-ui button{pointer-events:auto;background:rgba(0,0,0,.55)}
 .perf-ui button:hover{background:var(--bone)}
 #visualNow,.perf-bottom span{font:800 10px var(--sans);letter-spacing:.22em;color:var(--dim);text-transform:uppercase}
 
-@media (max-width:720px){
- .archive-grid{grid-template-columns:1fr}.basket{position:static}
- .controls{grid-template-columns:1fr}
- .wave-card{grid-template-columns:64px minmax(0,1fr);gap:8px 14px;padding:18px 0}
- .keycap{font-size:60px}
- .actions{grid-column:1/-1;justify-content:flex-start}
- .menu-item{grid-template-columns:34px 1fr;gap:8px}
- .preview-btn{min-width:84px}
- .library-sound{grid-template-columns:34px minmax(0,1fr);grid-template-areas:"no name" "no meta" "no act"}
- .library-sound>:nth-child(4){margin-top:6px}
- #openMenu{top:12px;right:12px;padding:12px 16px}
-}
+/* mobile layout: switched on by class "m" (automatic on small screens, or chosen in the menu) */
+html.m .archive-grid{grid-template-columns:1fr}html.m .basket{position:static}
+html.m .controls{grid-template-columns:1fr}
+html.m .wave-card{grid-template-columns:64px minmax(0,1fr);gap:8px 14px;padding:18px 0}
+html.m .keycap:not(.long){font-size:60px}
+html.m .actions{grid-column:1/-1;justify-content:flex-start}
+html.m .menu-item{grid-template-columns:34px 1fr;gap:8px}
+html.m .preview-btn{min-width:84px}
+html.m .library-sound{grid-template-columns:34px minmax(0,1fr);grid-template-areas:"no name" "no meta" "no act"}
+html.m .library-sound>:nth-child(4){margin-top:6px}
+html.m #openMenu{top:12px;right:12px;padding:12px 16px}
 @media (prefers-reduced-motion:reduce){.wave-card.looping .keycap{animation:none}.typed-ghost .w>span{animation:none;opacity:0}#toast{transition:none}}
+
+:root{--u:1vw}
+html.m{--u:min(1vw,4.3px)}
+html.m body{max-width:430px;margin:0 auto;box-shadow:0 0 0 1px var(--line)}
+html.m .room-inner,html.m .room-inner.wide{max-width:430px}
+html.m #openMenu{right:max(12px,calc(50vw - 203px))}
+.keycap{cursor:pointer}
 </style>
 </head>
 <body>
@@ -180,7 +191,7 @@ canvas{display:block;width:100%;height:64px;background:#000}
     </div>
   </div>
   <div class="wave-list" id="waveList"></div>
-  <p class="hint">Press the keys on your keyboard.</p>
+  <p class="hint" id="hintLine">Press the keys on your keyboard.</p>
 </section>
 </main>
 
@@ -201,6 +212,10 @@ canvas{display:block;width:100%;height:64px;background:#000}
     <nav class="menu-list small">
       <button class="menu-item" id="saveProject" type="button"><span class="mi-no">↓</span><span><strong>Save project ↓</strong><small>Take it with you.</small></span></button>
       <button class="menu-item" id="loadProject" type="button"><span class="mi-no">↑</span><span><strong>Load project ↑</strong><small>Bring it back.</small></span></button>
+    </nav>
+    <div class="menu-sep">LAYOUT</div>
+    <nav class="menu-list small">
+      <button class="menu-item" id="menuView" type="button"><span class="mi-no">⇄</span><span><strong>View: <span id="viewName">Desktop</span></strong><small id="viewHint">Switch to mobile.</small></span></button>
     </nav>
     <input id="projectFile" type="file" accept=".json,application/json" hidden>
   </div>
@@ -256,10 +271,11 @@ canvas{display:block;width:100%;height:64px;background:#000}
 
 <div id="visualizer" tabindex="-1" aria-hidden="true">
   <canvas id="visualCanvas"></canvas>
+  <input id="perfInput" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" aria-label="Type a word">
   <div id="typeStage" aria-live="polite" aria-label="Typed word"><div id="typedText"></div></div>
   <div class="perf-ui">
     <div class="perf-top"><div id="visualNow">Press a key to create</div><button id="closeVisuals" type="button">Close ✕</button></div>
-    <div class="perf-bottom"><span>Type a word. Enter lets it go.</span><button id="visualStop" type="button">■ Stop all</button></div>
+    <div class="perf-bottom"><span>Type a word. Enter lets it go.</span><div class="btns"><button id="kbBtn" type="button">⌨ Keyboard</button><button id="visualStop" type="button">■ Stop all</button></div></div>
   </div>
 </div>
 <div id="toast" role="status" aria-live="polite"></div>
@@ -504,7 +520,7 @@ function render(){
  }
  [...sounds.entries()].sort((a,b)=>a[0].localeCompare(b[0])).forEach(([key,item],idx)=>{
   const card=document.createElement('div');card.className='wave-card';card.dataset.key=key;
-  const cap=document.createElement('div');cap.className='keycap';cap.textContent=label(key);if(label(key).length>1)cap.classList.add('long');
+  const cap=document.createElement('div');cap.className='keycap';cap.textContent=label(key);if(label(key).length>1)cap.classList.add('long');cap.title='Play';cap.addEventListener('click',()=>play(key));
   const main=document.createElement('div');main.className='wave-main';
   const head=document.createElement('div');head.className='wave-head';
   const name=document.createElement('span');name.className='filename';name.textContent=item.name;
@@ -548,9 +564,10 @@ function renderTypedText(){
  typedTextEl.classList.toggle('hint',!typedText);
  if(!typedText){typedTextEl.style.fontSize='';return}
  // as big as the screen allows: start huge, shrink until the word fits without breaking
- let px=Math.round(Math.min(innerHeight*.5,innerWidth*.34));
+ const vh=window.visualViewport?visualViewport.height:innerHeight;
+ let px=Math.round(Math.min(vh*.5,innerWidth*.34));
  typedTextEl.style.fontSize=px+'px';
- for(let i=0;i<40&&px>40&&(typedTextEl.scrollWidth>typedTextEl.clientWidth+1||typedTextEl.scrollHeight>innerHeight*.72);i++){px=Math.floor(px*.93);typedTextEl.style.fontSize=px+'px'}
+ for(let i=0;i<40&&px>40&&(typedTextEl.scrollWidth>typedTextEl.clientWidth+1||typedTextEl.scrollHeight>vh*.72);i++){px=Math.floor(px*.93);typedTextEl.style.fontSize=px+'px'}
 }
 // Enter lets the word go: every letter dissolves on its own (blur, drift, fade)
 // while the next word can start right away.
@@ -876,6 +893,38 @@ document.getElementById('menuGallery').addEventListener('click',()=>openRoom('ro
 document.getElementById('galleryLoad').addEventListener('click',()=>projectFile.click());
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeOverlays));
 
+// Phone keyboard for the performance view: a hidden text field holds the word, so the
+// phone's own keyboard can pop up. Every letter shows on screen and plays its sound.
+(()=>{
+ const input=document.getElementById('perfInput'),kbBtn=document.getElementById('kbBtn');
+ const touch=!!(window.matchMedia&&matchMedia('(hover:none)').matches);
+ const root=document.documentElement,vv=window.visualViewport;
+ // keep the word and the buttons above the keyboard
+ const syncVV=()=>{if(!vv)return;root.style.setProperty('--vvh',vv.height+'px');root.style.setProperty('--vvt',vv.offsetTop+'px');if(visualActive)renderTypedText()};
+ if(vv){vv.addEventListener('resize',syncVV);vv.addEventListener('scroll',syncVV);syncVV()}
+ const show=()=>{if(touch)try{input.focus({preventScroll:true})}catch(e){input.focus()}};
+ let prev='';
+ input.addEventListener('input',()=>{
+  const v=input.value;
+  if(v.length>prev.length&&v.startsWith(prev)){
+   for(const ch of v.slice(prev.length)){const k=ch===' '?' ':ch.toLowerCase();if(sounds.has(k))play(k)}
+  }
+  prev=v;
+  typedText=v.replace(/\s+/g,' ').replace(/^ /,'');
+  renderTypedText();
+ });
+ input.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){e.preventDefault();finishWord();input.value='';prev=''}
+ });
+ document.getElementById('openVisuals').addEventListener('click',show);
+ kbBtn.addEventListener('click',show);
+ // a tap on the dark screen must not move focus to the view itself (that would hide the keyboard)
+ visualizer.addEventListener('mousedown',e=>{if(!e.target.closest('button'))e.preventDefault()});
+ visualizer.addEventListener('click',e=>{if(!e.target.closest('button'))show()});
+ new MutationObserver(()=>{if(visualizer.style.display==='none'){input.blur();input.value='';prev=''}})
+  .observe(visualizer,{attributes:true,attributeFilter:['style']});
+})();
+
 // Flashlight: the wall is only lit near the cursor (a slow drift on touch screens).
 (()=>{
  const root=document.documentElement;
@@ -906,10 +955,39 @@ function fitTitle(){
  h.style.fontSize='100px';
  const w=l1.getBoundingClientRect().width||1;
  // the first line runs a little past the screen edge; the height cap keeps sounds near the top
- h.style.fontSize=Math.max(54,Math.min(100*innerWidth*1.03/w,innerHeight*.38))+'px';
+ const W=h.parentElement.clientWidth||innerWidth;
+ h.style.fontSize=Math.max(54,Math.min(100*W*1.03/w,innerHeight*.38))+'px';
 }
 fitTitle();addEventListener('resize',fitTitle);
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitTitle);
+
+// View: mobile or desktop. Automatic by default; the menu switch overrides it and is remembered.
+(()=>{
+ const root=document.documentElement,meta=document.querySelector('meta[name="viewport"]');
+ const mq=window.matchMedia?matchMedia('(max-width:720px)'):null;
+ const touch=!!(window.matchMedia&&matchMedia('(hover:none)').matches);
+ let mode=null;try{mode=localStorage.getItem('whe-view')}catch(e){}
+ if(mode!=='mobile'&&mode!=='desktop')mode=null;
+ const nameEl=document.getElementById('viewName'),hintEl=document.getElementById('viewHint'),line=document.getElementById('hintLine');
+ const current=()=>mode||(mq&&mq.matches?'mobile':'desktop');
+ function apply(){
+  const v=current();
+  root.classList.toggle('m',v==='mobile');
+  // a phone switched to desktop gets a wide page, like "request desktop site"
+  if(meta)meta.setAttribute('content',(mode==='desktop'&&touch)?'width=1200':'width=device-width,initial-scale=1');
+  nameEl.textContent=v==='mobile'?'Mobile':'Desktop';
+  hintEl.textContent=v==='mobile'?'Switch to desktop.':'Switch to mobile.';
+  line.textContent=v==='mobile'?'Tap a letter, or press play.':'Press the keys on your keyboard.';
+  fitTitle();
+ }
+ document.getElementById('menuView').addEventListener('click',()=>{
+  mode=current()==='mobile'?'desktop':'mobile';
+  try{localStorage.setItem('whe-view',mode)}catch(e){}
+  apply();
+ });
+ if(mq){if(mq.addEventListener)mq.addEventListener('change',apply);else if(mq.addListener)mq.addListener(apply)}
+ apply();
+})();
 
 render();
 })();
