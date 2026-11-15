@@ -40,7 +40,11 @@ Everything else is behind the **MENU** button:
 - **Project gallery**: keep several named versions of your instrument in this browser, and **Load project file** to open a backup (.json) from your computer.
 - **Performance**: full screen. Type a word on your keyboard and it appears as large as the
   screen allows; press **Enter** and every letter dissolves. Backspace deletes, Esc closes.
+  On a phone the keyboard pops up by itself; tap **Keyboard** or the screen to bring it back.
 - **Save / Load project**: download or open a backup JSON file (older files still load).
+
+- **View: mobile / desktop**: the layout switches by itself on small screens. This menu item forces
+  one or the other and remembers your choice. On a phone, tap a key letter (or PLAY) to play a sound.
 
 Esc closes whatever is open.
 
